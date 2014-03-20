@@ -27,6 +27,9 @@
     <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
+            <!--
+             @see https://code.google.com/p/maven-android-plugin/issues/detail?id=294#c1
+            -->
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
@@ -40,7 +43,17 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <attachNativeArtifacts>true</attachNativeArtifacts>
+                    <sdk>
+                        <platform>${android.platform}</platform>
+                    </sdk>
+                    <proguard>
+                        <skip>true</skip>
+                    </proguard>
+                    <clearNativeArtifacts>false</clearNativeArtifacts>
+                    <attachNativeArtifacts>false</attachNativeArtifacts>
+                    <useHeaderArchives>false</useHeaderArchives>
+                    <ndkBuildAdditionalCommandline>NDK_TOOLCHAIN=""</ndkBuildAdditionalCommandline>
+                    <target>all</target>
                 </configuration>
             </plugin>
         </plugins>

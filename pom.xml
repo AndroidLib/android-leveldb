@@ -23,24 +23,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <android-maven-plugin.version>3.8.1</android-maven-plugin.version>
+        <android-maven-plugin.version>3.6.0</android-maven-plugin.version>
         <android.platform>19</android.platform>
     </properties>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                    <artifactId>android-maven-plugin</artifactId>
-                    <version>${android-maven-plugin.version}</version>
-                    <configuration>
-                        <sdk>
-                            <platform>${android.platform}</platform>
-                        </sdk>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>
