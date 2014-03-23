@@ -17,6 +17,7 @@
 
     <dependencies>
         <dependency>
+            <scope>provided</scope>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
             <version>${android-platform.version}</version>
@@ -42,7 +43,7 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.9.0-rc.1</version>
+                <version>${android-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
