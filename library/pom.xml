@@ -19,20 +19,30 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>4.1.1.4</version>
-            <scope>provided</scope>
+            <version>${android-platform.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin.version}</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
             <!--
              @see https://code.google.com/p/maven-android-plugin/issues/detail?id=294#c1
+             @see http://stackoverflow.com/questions/21333524/missing-architectures-in-apklib-with-native-code-apklib-dependency-android-mave/21408093#21408093
             -->
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
+                <version>3.9.0-rc.1</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -44,17 +54,28 @@
                 </executions>
                 <configuration>
                     <sdk>
+                        <platform>${android-api-level}</platform>
+                    </sdk>
+                    <ndkArchitecture>armeabi armeabi-v7a</ndkArchitecture>
+                    <attachNativeArtifacts>true</attachNativeArtifacts>
+                    <!--x86 mips-->
+                </configuration>
+                <!--
+                <clearNativeArtifacts>false</clearNativeArtifacts>
+
+                <configuration>
+                    <sdk>
                         <platform>${android.platform}</platform>
                     </sdk>
                     <proguard>
                         <skip>true</skip>
                     </proguard>
-                    <clearNativeArtifacts>false</clearNativeArtifacts>
+
                     <attachNativeArtifacts>false</attachNativeArtifacts>
                     <useHeaderArchives>false</useHeaderArchives>
                     <ndkBuildAdditionalCommandline>NDK_TOOLCHAIN=""</ndkBuildAdditionalCommandline>
                     <target>all</target>
-                </configuration>
+                </configuration>-->
             </plugin>
         </plugins>
     </build>

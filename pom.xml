@@ -23,7 +23,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <android-maven-plugin.version>3.6.0</android-maven-plugin.version>
-        <android.platform>19</android.platform>
+        <android-maven-plugin.version>3.9.0-rc.1</android-maven-plugin.version>
+        <android-platform.version>4.1.1.4</android-platform.version>
+        <android-api-level>16</android-api-level>
+        <compiler-plugin.version>3.1</compiler-plugin.version>
     </properties>
 </project>
