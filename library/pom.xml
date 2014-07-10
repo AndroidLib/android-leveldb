@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.github.androidlib.leveldb</groupId>
         <artifactId>leveldbjni-parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>leveldbjni</artifactId>
@@ -18,7 +18,8 @@
     <dependencies>
         <dependency>
             <scope>provided</scope>
-            <groupId>com.google.android</groupId>
+            <!--<groupId>com.google.android</groupId>-->
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
             <version>${android-platform.version}</version>
         </dependency>
@@ -57,7 +58,7 @@
                     <sdk>
                         <platform>${android-api-level}</platform>
                     </sdk>
-                    <ndkArchitecture>armeabi armeabi-v7a</ndkArchitecture>
+                    <ndkArchitecture>armeabi armeabi-v7a x86</ndkArchitecture>
                     <attachNativeArtifacts>true</attachNativeArtifacts>
                     <!--x86 mips-->
                 </configuration>
